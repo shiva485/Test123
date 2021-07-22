@@ -1,0 +1,44 @@
+<h1>{{title | uppercase}}</h1>
+
+<div *ngIf="show">
+    <table>
+        <tr>
+            <th>Name</th>
+            <th>Country</th>
+            <th>State</th>
+            <th>City</th>
+            <th>Street</th>
+            <th>Phone</th>
+            <th>View By Name</th>
+            <th>View By City</th>
+        </tr>
+        <tr *ngFor="let data of breweryData">
+            <td>{{data.name}}</td>
+            <td>{{data.country}}</td>
+            <td>{{data.state}}</td>
+            <td>{{data.city}}</td>
+            <td>{{data.street}}</td>
+            <td>{{data.phone}}</td>
+            <td><button class="btn btn-primary" (click)="getBreweryByData('name', data.name)"> View </button></td>
+            <td><button class="btn btn-primary" (click)="getBreweryByData('city', data.city)"> View </button></td>
+        </tr>
+    </table>
+</div>
+
+<div *ngIf="!show">
+    <button class="btn btn-primary" (click)="returnToList()">Back</button>
+<div *ngFor="let data of breweryDataByType">
+    <div>Name: {{data.name}}</div>
+    <div>Country: {{data.country}}</div>
+    <div>State: {{data.state}}</div>
+    <div>City: {{data.city}}</div>
+    <div>Street: {{data.street}}</div>
+    <div>Phone: {{data.phone}}</div>
+    <div>Postal Code: {{data.postal_code}}</div>
+    <div>Website: {{data.website_url}}</div>
+    <div>Brewery Type: {{data.brewery_type}}</div>
+    <div>Longitude: {{data.longitude}}</div>
+    <div>Latitude: {{data.latitude}}</div>
+    <br>
+</div>
+</div>
